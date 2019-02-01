@@ -11,7 +11,7 @@ public class recursion {
     }
   }
 
-  public static double mySqrt(double n, double guess, double tolerance) {
+  private static double mySqrt(double n, double guess, double tolerance) {
     if (percentError(n, guess) < tolerance) {
       return guess;
     }
@@ -20,11 +20,11 @@ public class recursion {
     }
   }
 
-  public static double newGuess(double n, double guess) {
+  private static double newGuess(double n, double guess) {
     return (n / guess + guess) / 2;
   }
 
-  public static double percentError(double n, double guess) {
+  private static double percentError(double n, double guess) {
     return Math.abs((guess * guess - n) / n) * 100;
   }
 
@@ -38,7 +38,7 @@ public class recursion {
     }
   }
 
-  public static int fibHelper(int n, int first, int second, int counter) {
+  private static int fibHelper(int n, int first, int second, int counter) {
     if (counter == n) {
       return first + second;
     }
@@ -64,19 +64,20 @@ public class recursion {
   }
 
   public static ArrayList<Integer> addLists(ArrayList<Integer> A, ArrayList<Integer> B) {
-    for (int i = 0; B.size() > 0; i++) {
+    for (int i = 0; B.size() > i; i++) {
       A.add(B.get(i));
     }
     return A;
   }
 
   public static void main(String[] args) {
-    System.out.println(fib(0));
-    System.out.println(fib(1));
-    System.out.println(fib(2));
-    System.out.println(fib(5));
-
-    //System.out.println(makeAllSums(3));
+    ArrayList<Integer> A = new ArrayList<Integer>();
+    A.add(1);
+    A.add(2);
+    ArrayList<Integer> B = new ArrayList<Integer>();
+    B.add(3);
+    B.add(4);
+    System.out.println(addLists(A, B));
 
     /*
     System.out.println(sqrt(10, .001));
@@ -85,6 +86,10 @@ public class recursion {
     System.out.println(sqrt(100, .001));
     System.out.println(sqrt(81, .001));
     System.out.println(sqrt(82, .001));
+    System.out.println(fib(0));
+    System.out.println(fib(1));
+    System.out.println(fib(2));
+    System.out.println(fib(5));
     */
   }
 }
