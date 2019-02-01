@@ -29,6 +29,23 @@ public class recursion {
   }
 
   //nth Fibbonaci
+  public static int fib(int n){
+    if (n < 2) {
+      return n;
+    }
+    else {
+      return fibHelper(n, 0, 1, 2);
+    }
+  }
+
+  public static int fibHelper(int n, int first, int second, int counter) {
+    if (counter == n) {
+      return first + second;
+    }
+    else {
+      return fibHelper(n, second, first+second, counter+1);
+    }
+  }
 
   //Finding number of possible sums
   public static ArrayList<Integer> makeAllSums(int n) {
@@ -54,7 +71,12 @@ public class recursion {
   }
 
   public static void main(String[] args) {
-    System.out.println(makeAllSums(3));
+    System.out.println(fib(0));
+    System.out.println(fib(1));
+    System.out.println(fib(2));
+    System.out.println(fib(5));
+
+    //System.out.println(makeAllSums(3));
 
     /*
     System.out.println(sqrt(10, .001));
