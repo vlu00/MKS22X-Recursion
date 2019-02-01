@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 public class recursion {
   //sqrt using Newton's approximation
   public static double sqrt(double n, double tolerance) {
@@ -29,13 +31,38 @@ public class recursion {
   //nth Fibbonaci
 
   //Finding number of possible sums
+  public static ArrayList<Integer> makeAllSums(int n) {
+    ArrayList<Integer> L = new ArrayList<Integer>();
+    return makeList(n, 0, L);
+  }
+
+  public static ArrayList<Integer> makeList(int n, int sum, ArrayList<Integer> L) {
+    if (n > 0) {
+      return addLists(makeList(n-1, sum+n, L), makeList(n-1, sum, L));
+    }
+    else {
+      L.add(sum);
+      return L;
+    }
+  }
+
+  public static ArrayList<Integer> addLists(ArrayList<Integer> A, ArrayList<Integer> B) {
+    for (int i = 0; B.size() > 0; i++) {
+      A.add(B.get(i));
+    }
+    return A;
+  }
 
   public static void main(String[] args) {
+    System.out.println(makeAllSums(3));
+
+    /*
     System.out.println(sqrt(10, .001));
     System.out.println(sqrt(0, .001));
     System.out.println(sqrt(0.1, .001));
     System.out.println(sqrt(100, .001));
     System.out.println(sqrt(81, .001));
     System.out.println(sqrt(82, .001));
+    */
   }
 }
