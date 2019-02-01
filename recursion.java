@@ -71,13 +71,8 @@ public class recursion {
   }
 
   public static void main(String[] args) {
-    ArrayList<Integer> A = new ArrayList<Integer>();
-    A.add(1);
-    A.add(2);
-    ArrayList<Integer> B = new ArrayList<Integer>();
-    B.add(3);
-    B.add(4);
-    System.out.println(addLists(A, B));
+
+    System.out.println(makeAllSums(3));
 
     /*
     System.out.println(sqrt(10, .001));
