@@ -54,6 +54,16 @@ public class recursion {
   }
 
   public static ArrayList<Integer> makeList(int n, int sum, ArrayList<Integer> L) {
+    if (n == 0) {
+      L.add(sum);
+      return L; 
+    } else {
+      return makeList(n-1, sum+n, makeList(n-1, sum, L));
+    }
+  }
+  /*
+
+  public static ArrayList<Integer> makeList(int n, int sum, ArrayList<Integer> L) {
     if (n > 0) {
       return addLists(makeList(n-1, sum+n, L), makeList(n-1, sum, L));
     }
@@ -69,6 +79,7 @@ public class recursion {
     }
     return A;
   }
+  */
 
   public static void main(String[] args) {
 
