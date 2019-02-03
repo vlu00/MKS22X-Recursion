@@ -57,15 +57,17 @@ public class recursion {
     if (n == 0) {
       L.add(sum);
       return L;
-    } else {
+    } else if (n > 0){
       return makeList(n-1, sum+n, makeList(n-1, sum, L));
+    } else {
+      return makeList(n+1, sum+n, makeList(n+1, sum, L));
     }
   }
 
   public static void main(String[] args) {
 
-    System.out.println(makeAllSums(-3));
-    System.out.println(makeAllSums(1));
+    System.out.println(makeAllSums(-4));
+    System.out.println(makeAllSums(4));
     System.out.println(makeAllSums(2));
     System.out.println(makeAllSums(0));
 
