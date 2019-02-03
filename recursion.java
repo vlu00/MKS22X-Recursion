@@ -12,19 +12,19 @@ public class recursion {
   }
 
   private static double mySqrt(double n, double guess, double tolerance) {
-    if (percentError(n, guess) < tolerance) {
+    if (percentError(n, guess) < tolerance) { //if percent error is small enough
       return guess;
     }
     else {
-      return mySqrt(n, newGuess(n, guess), tolerance);
+      return mySqrt(n, newGuess(n, guess), tolerance); //otherwise make another guess
     }
   }
 
-  private static double newGuess(double n, double guess) {
+  private static double newGuess(double n, double guess) { //generates new guess
     return (n / guess + guess) / 2;
   }
 
-  private static double percentError(double n, double guess) {
+  private static double percentError(double n, double guess) { //finds percent error from actual sqrt
     return Math.abs((guess * guess - n) / n) * 100;
   }
 
@@ -38,12 +38,12 @@ public class recursion {
     }
   }
 
-  private static int fibHelper(int n, int first, int second, int counter) {
+  private static int fibHelper(int n, int first, int second, int counter) { //first is n-2 and second is n-1
     if (counter == n) {
-      return first + second;
+      return first + second; //return the sum of the previous 2
     }
     else {
-      return fibHelper(n, second, first+second, counter+1);
+      return fibHelper(n, second, first+second, counter+1); //continue with the pattern
     }
   }
 
@@ -54,35 +54,13 @@ public class recursion {
   }
 
   public static ArrayList<Integer> makeList(int n, int sum, ArrayList<Integer> L) {
-    if (n == 0) {
-      L.add(sum);
+    if (n == 0) { //no numbers left to add
+      L.add(sum); //add partial sum to list
       return L;
-    } else if (n > 0){
-      return makeList(n-1, sum+n, makeList(n-1, sum, L));
-    } else {
+    } else if (n > 0){ //n is positive
+      return makeList(n-1, sum+n, makeList(n-1, sum, L)); //Building list based off first (list where did not add number)
+    } else { //n is negative
       return makeList(n+1, sum+n, makeList(n+1, sum, L));
     }
-  }
-
-  public static void main(String[] args) {
-
-    System.out.println(makeAllSums(-4));
-    System.out.println(makeAllSums(4));
-    System.out.println(makeAllSums(2));
-    System.out.println(makeAllSums(0));
-
-
-    /*
-    System.out.println(sqrt(10, .001));
-    System.out.println(sqrt(0, .001));
-    System.out.println(sqrt(0.1, .001));
-    System.out.println(sqrt(100, .001));
-    System.out.println(sqrt(81, .001));
-    System.out.println(sqrt(82, .001));
-    System.out.println(fib(0));
-    System.out.println(fib(1));
-    System.out.println(fib(2));
-    System.out.println(fib(5));
-    */
   }
 }
