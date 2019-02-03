@@ -56,34 +56,19 @@ public class recursion {
   public static ArrayList<Integer> makeList(int n, int sum, ArrayList<Integer> L) {
     if (n == 0) {
       L.add(sum);
-      return L; 
+      return L;
     } else {
       return makeList(n-1, sum+n, makeList(n-1, sum, L));
     }
   }
-  /*
-
-  public static ArrayList<Integer> makeList(int n, int sum, ArrayList<Integer> L) {
-    if (n > 0) {
-      return addLists(makeList(n-1, sum+n, L), makeList(n-1, sum, L));
-    }
-    else {
-      L.add(sum);
-      return L;
-    }
-  }
-
-  public static ArrayList<Integer> addLists(ArrayList<Integer> A, ArrayList<Integer> B) {
-    for (int i = 0; B.size() > i; i++) {
-      A.add(B.get(i));
-    }
-    return A;
-  }
-  */
 
   public static void main(String[] args) {
 
-    System.out.println(makeAllSums(3));
+    System.out.println(makeAllSums(-3));
+    System.out.println(makeAllSums(1));
+    System.out.println(makeAllSums(2));
+    System.out.println(makeAllSums(0));
+
 
     /*
     System.out.println(sqrt(10, .001));
